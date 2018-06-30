@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <script src ="jquery-3.2.1.js"></script>
+    <title>Exercice 2 Partie 4</title>
+  </head>
+  <body>
+    <form class="moyenneNote" action="index.html" method="post">
+      <label for="">1ère note : </label><input type="text" name="note1" id="note1" />
+      <label for="">2ème note : </label><input type="text" name="note2" id="note2" />
+      <label for="">3ème note : </label><input type="text" name="note3" id="note3" />
+      <label for="">4ème note : </label><input type="text" name="note4" id="note4" />
+      <label for="">5ème note : </label><input type="text" name="note5" id="note5" />
+      <button type="button" name="button" id="valider">Valider</button>
+    </form>
+      <div id="appreciation"></div>
+  </body>
+  <script>
+  //Déclaration de la fonction sur le bouton valider
+    $('#valider').click(function(){
+      //Déclaration des variables notes en renvoyant un entier
+      var note1 = parseInt($('#note1').val());
+      var note2 = parseInt($('#note2').val());
+      var note3 = parseInt($('#note3').val());
+      var note4 = parseInt($('#note4').val());
+      var note5 = parseInt($('#note5').val());
+      //Déclaration de la variable moyenneStudent
+      var moyenneStudent = (note1 + note2 + note3 + note4 + note5) /5;
+      //Condition pour obtenir le résultat en fonction des notes
+      if (moyenneStudent <= 10) {
+        $('#appreciation').text(moyenneStudent + ', En dessous de la moyenne.');
+      }
+      else if (moyenneStudent >= 10 && moyenneStudent < 13) {
+        $('#appreciation').text(moyenneStudent + ', Moyen...');
+      }
+      else if (moyenneStudent >= 13 && moyenneStudent < 16) {
+        $('#appreciation').text(moyenneStudent +  ', Bien.');
+      }
+      else if (moyenneStudent >=16 && moyenneStudent < 20) {
+        $('#appreciation').text(moyenneStudent + ', Très bien.');
+      }
+      else if (moyenneStudent == 20) {
+        $('appreciation').text(moyenneStudent + ', Excellent.');
+      }
+      else {
+        alert('Veuillez entrer des caractères valides.');
+      }
+    });
+  </script>
+</html>
